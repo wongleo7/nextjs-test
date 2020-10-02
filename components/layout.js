@@ -43,12 +43,12 @@ export default function Layout({ children, home }) {
             <main className={styles.main}>
                 {children}
             </main>
-            {!home && (
+            <section id="footer" className={styles.footer}>
                 <div className={styles.backToHome}>
-                    Foot
+                    <a className={styles.repo} href="https://github.com/wongleo7/nextjs-test">Github Repo</a>
                     <a className={styles.credits} href="https://icons8.com/icon/118745/bread">Bread icon by Icons8</a>
                 </div>
-            )}
+            </section>
         </div>
     )
 }
