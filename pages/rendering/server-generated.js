@@ -1,0 +1,42 @@
+import Head from 'next/head'
+import Layout from '../../components/layout'
+import getWorldTime from '../../factory/httpCalls'
+import GetTimeButton from '../../components/common-buttons'
+import moment from 'moment';
+
+export default function ServerGenerated({ currentTimePackage }) {
+  return (
+    <Layout>
+      <Head>
+        <title>Server Generated Sample</title>
+      </Head>
+      <div>
+        <h3>
+          <div>
+              Data was fetched at:
+          </div>
+          {currentTimePackage &&
+            moment(currentTimePackage.datetime).format('LLL')}
+        </h3>
+        <h3>
+          <p>
+            Click to Get Current Time:
+          </p>
+          <GetTimeButton />
+        </h3>
+      </div>
+    </Layout>
+  )
+}
+
+export async function getStaticProps() {
+    // The value of the `props` key will be
+    //  passed to the `Home` component
+    let currentTimePackage = await getWorldTime();
+    return {
+        props: {
+            currentTimePackage
+        },
+        revalidate: 300
+    }
+}
