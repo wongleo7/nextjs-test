@@ -3,6 +3,7 @@ import Layout from '../../components/layout'
 import getWorldTime from '../../factory/httpCalls'
 import GetTimeButton from '../../components/common-buttons'
 import moment from 'moment';
+const dateTimeFormat = "YYYY-MM-DD HH:mm:ss";
 
 export default function ServerRendered({ currentTimePackage }) {
   return (
@@ -16,7 +17,7 @@ export default function ServerRendered({ currentTimePackage }) {
               Data was fetched at:
           </div>
           {currentTimePackage &&
-            moment(currentTimePackage.datetime).format('LLL')}
+            moment(currentTimePackage.datetime).format(dateTimeFormat)}
       </h3>
         <h3>
           <p>

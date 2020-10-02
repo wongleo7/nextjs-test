@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import getWorldTime from '../factory/httpCalls'
 import moment from 'moment';
-
 const dateTimeFormat = "YYYY-MM-DD HH:mm:ss";
+
 export default function getTimeButton() {
     const [currentTimeObject, setCurrentTimeObject] = useState([]);
 
